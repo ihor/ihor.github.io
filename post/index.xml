@@ -17,7 +17,7 @@
       <guid>http://ihor.burlachenko.com/deep-linking-with-react-native/</guid>
       <description>
 
-&lt;p&gt;Recently I added deep linking integration to one of my projects and I want to share my experience with you. It is a complete guide which covers all the steps and explains how to add deep links both on iOS and Android. I&amp;rsquo;ll use &lt;a href=&#34;https://github.com/aksonov/react-native-router-flux&#34;&gt;React Native Router Flux&lt;/a&gt;. It is a very nice navigation library and at the moment of writing, I couldn&amp;rsquo;t find anything which I would like more. In case you are using something else, this tutorial still will be useful for you as it doesn&amp;rsquo;t rely on the navigation library but describes how to integrate deep links to your application.&lt;/p&gt;
+&lt;p&gt;Recently I added deep linking integration to one of my projects and I want to share my experience with you. It is a complete guide which covers all the steps and explains how to add deep links both on iOS and Android. In my example I&amp;rsquo;ll use &lt;a href=&#34;https://github.com/aksonov/react-native-router-flux&#34;&gt;React Native Router Flux&lt;/a&gt;. It is a very nice navigation library and at the moment of writing, I couldn&amp;rsquo;t find anything which I would like more. In case you are using something else, this tutorial still will be useful for you as it doesn&amp;rsquo;t rely on the navigation library but describes how to integrate deep links to your application.&lt;/p&gt;
 
 &lt;h3 id=&#34;what-is-deep-linking&#34;&gt;What is deep linking?&lt;/h3&gt;
 
