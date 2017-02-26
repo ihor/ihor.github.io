@@ -9,8 +9,17 @@
 
 html {
     font-family: medium-content-serif-font,Georgia,Cambria,"Times New Roman",Times,serif;
-    color: #515151;
+    /*color: #515151;*/
+    color: #313131;
     background-color: #fff;
+}
+
+ol, ul {
+    margin-left: 1rem;
+}
+
+.hljs {
+    font-size: 13px;
 }
 
 @media (min-width: 48em) {
@@ -40,6 +49,20 @@ hr {
     border: 0;
     border-top: 1px solid #eee;
     border-bottom: 1px solid #fff;
+}
+
+p code, li code, table code {
+    padding: .25em .5em;
+    font-size: 75%;
+    background-color: #f7f7f7;
+    border-radius: 3px;
+}
+
+code, code[class*='language-'], pre[class*='language-'] {
+    font-family: Menlo, Monaco, "Courier New", monospace;
+    font-size: 13px;
+    line-height: 1.5;
+    background-color: #f9f9f9;
 }
 
 .cf {
@@ -125,6 +148,10 @@ hr {
 
 .posts {
     list-style: none;
+}
+
+ul.posts, ol.posts {
+    margin-left: 0;
 }
 
 .posts li {

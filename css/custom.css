@@ -1,0 +1,19 @@
+.head {
+    /*background-image: linear-gradient(to top, #e6e9f0 0%, #eef1f5 100%);*/
+    /*background-image: linear-gradient(60deg, #29323c 0%, #485563 100%);*/
+    /*background-image: linear-gradient(-20deg, #2b5876 0%, #4e4376 100%);*/
+    /*background-image: linear-gradient(to top, #1e3c72 0%, #1e3c72 1%, #2a5298 100%);*/
+    background-image: linear-gradient(to right, #243949 0%, #517fa4 100%);
+    /*background-image: linear-gradient(135deg, #2e3192, #1bffff);*/
+    /*background-image: linear-gradient(to right, #a8caba 0%, #5d4157 100%);*/
+    /*background-image: linear-gradient(45deg, #8baaaa 0%, #ae8b9c 100%);*/
+    border-bottom: 0;
+}
+
+.head a {
+    color: #fefefe;
+}
+
+.head a:hover {
+    color: #fff;
+}

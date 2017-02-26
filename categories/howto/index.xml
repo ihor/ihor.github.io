@@ -1,13 +1,12 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Ihor Burlachenko</title>
-    <link>http://ihor.burlachenko.com/index.xml</link>
-    <description>Recent content on Ihor Burlachenko</description>
+    <title>Howto on Ihor Burlachenko</title>
+    <link>http://ihor.burlachenko.com/categories/howto/index.xml</link>
+    <description>Recent content in Howto on Ihor Burlachenko</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 24 Feb 2017 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://ihor.burlachenko.com/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://ihor.burlachenko.com/categories/howto/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Deep Linking with React Native</title>
@@ -215,57 +214,6 @@ export default &amp;lt;LinkedRouter scenes={scenes} scheme=&amp;quot;exampleapp&
 &lt;li&gt;&lt;a href=&#34;https://github.com/aksonov/react-native-router-flux&#34;&gt;React Native Router Flux navigation library&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;https://millermedeiros.github.io/crossroads.js/&#34;&gt;Crossroads routing library&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
-</description>
-    </item>
-    
-    <item>
-      <title></title>
-      <link>http://ihor.burlachenko.com/about/</link>
-      <pubDate>Tue, 21 Feb 2017 00:00:00 +0000</pubDate>
-      
-      <guid>http://ihor.burlachenko.com/about/</guid>
-      <description>
-
-&lt;h3 id=&#34;hey-i-m-ihor&#34;&gt;Hey, I&amp;rsquo;m Ihor&lt;/h3&gt;
-
-&lt;p&gt;I&amp;rsquo;m a software engineer mostly working with PHP stack but not limited to it. I have a solid experience in developing complex business logic, solving performance problems and managing teams. With over 9 years of experience, I learned how to deliver high-quality product and meet business needs.&lt;/p&gt;
-
-&lt;p&gt;I&amp;rsquo;m available for onsite work in Wroclaw, Poland and for remote contracting.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;https://c1.staticflickr.com/1/368/19023083332_79e9b1c861_z.jpg&#34; alt=&#34;Family Photo&#34; title=&#34;Family Photo&#34; /&gt;&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title></title>
-      <link>http://ihor.burlachenko.com/license/</link>
-      <pubDate>Tue, 21 Feb 2017 00:00:00 +0000</pubDate>
-      
-      <guid>http://ihor.burlachenko.com/license/</guid>
-      <description>
-
-&lt;h3 id=&#34;content-license&#34;&gt;Content license&lt;/h3&gt;
-
-&lt;p&gt;All non-code blog content is licensed under &lt;a href=&#34;http://creativecommons.org/licenses/by-nc-sa/3.0/&#34;&gt;Creative Commons BY-NC-SA&lt;/a&gt;.&lt;/p&gt;
-
-&lt;h3 id=&#34;code-license&#34;&gt;Code license&lt;/h3&gt;
-
-&lt;p&gt;All source code files and snippets found on this blog, unless otherwise explicitly noted, are licensed under the terms below.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-html&#34;&gt;Copyright 2017 Ihor Burlachenko
-
-Licensed under the Apache License, Version 2.0 (the &amp;quot;License&amp;quot;);
-you may not use this file except in compliance with the License.
-You may obtain a copy of the License at
-
-   http://www.apache.org/licenses/LICENSE-2.0
-
-Unless required by applicable law or agreed to in writing, software
-distributed under the License is distributed on an &amp;quot;AS IS&amp;quot; BASIS,
-WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-See the License for the specific language governing permissions and
-limitations under the License.
-&lt;/code&gt;&lt;/pre&gt;
 </description>
     </item>
     

@@ -6,16 +6,215 @@
     <description>Recent content in Posts on Ihor Burlachenko</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 21 Feb 2017 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 24 Feb 2017 00:00:00 +0000</lastBuildDate>
     <atom:link href="http://ihor.burlachenko.com/post/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
-      <title>Hello</title>
-      <link>http://ihor.burlachenko.com/hello/</link>
-      <pubDate>Tue, 21 Feb 2017 00:00:00 +0000</pubDate>
+      <title>Deep Linking with React Native</title>
+      <link>http://ihor.burlachenko.com/deep-linking-with-react-native/</link>
+      <pubDate>Fri, 24 Feb 2017 00:00:00 +0000</pubDate>
       
-      <guid>http://ihor.burlachenko.com/hello/</guid>
-      <description>&lt;p&gt;Welcome to my new blog. Interesting posts are coming soon. Subscribe!&lt;/p&gt;
+      <guid>http://ihor.burlachenko.com/deep-linking-with-react-native/</guid>
+      <description>
+
+&lt;p&gt;Recently I added deep linking integration to one of my projects and I want to share my experience with you. It is a complete guide which covers all the steps and explains how to add deep links both on iOS and Android. I&amp;rsquo;ll use &lt;a href=&#34;https://github.com/aksonov/react-native-router-flux&#34;&gt;React Native Router Flux&lt;/a&gt;. It is a very nice navigation library and at the moment of writing, I couldn&amp;rsquo;t find anything which I would like more. In case you are using something else, this tutorial still will be useful for you as it doesn&amp;rsquo;t rely on the navigation library but describes how to integrate deep links to your application.&lt;/p&gt;
+
+&lt;h3 id=&#34;what-is-deep-linking&#34;&gt;What is deep linking?&lt;/h3&gt;
+
+&lt;p&gt;Deep links allow us to link to specific screens in a mobile application rather than simply launching the app. &lt;a href=&#34;fb://profile/4&#34;&gt;fb://profile/4&lt;/a&gt; is an example of a deep link. If you have Facebook installed on your phone try opening that link. It will launch the Facebook application and show you Mark Zuckerberg&amp;rsquo;s profile.&lt;/p&gt;
+
+&lt;h3 id=&#34;example-application&#34;&gt;Example application&lt;/h3&gt;
+
+&lt;p&gt;I prepared a example application which has two screens. On the first one we are offered to enter our name and when we submit it we are taken to the second screen where we can see a greeting message. Our goal will be to allow deep links with parametrized names to the greeting screen. You can check the sources &lt;a href=&#34;https://github.com/ihor/ReactNativeDeepLinkingExample&#34;&gt;here&lt;/a&gt;.
+&lt;p align=&#34;center&#34;&gt;
+    &lt;img src=&#34;http://ihor.burlachenko.com/img/deeplinking/example-app.gif&#34; alt=&#34;Sample Application&#34; title=&#34;Example application&#34; height=500/&gt;
+&lt;/p&gt;&lt;/p&gt;
+
+&lt;h3 id=&#34;deep-linking-with-react-native&#34;&gt;Deep linking with React Native&lt;/h3&gt;
+
+&lt;p&gt;In order to process incoming links in our React application, we need to use &lt;a href=&#34;https://facebook.github.io/react-native/docs/linking.html&#34;&gt;Linking API&lt;/a&gt; from React Native. According to the official docs, to handle initial URL which was used to open our application we can use the following code:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-jsx&#34;&gt;Linking
+    .getInitialURL()
+    .then(url =&amp;gt; handleOpenURL({ url }))
+    .catch(console.error);
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;To handle incoming URLs when the app is running in background we have to attach a listener which will be called when such event occurs:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-jsx&#34;&gt;Linking.addEventListener(&#39;url&#39;, handleOpenURL);
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;code&gt;handleOpenURL&lt;/code&gt; has to navigate us to the corresponding scene based on URL which it will receive with the event. I&amp;rsquo;ll use &lt;a href=&#34;https://millermedeiros.github.io/crossroads.js/&#34;&gt;crossroads&lt;/a&gt; to parse the route. This routing library does too much for such simple application, but it might become very useful when your application gets bigger:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-jsx&#34;&gt;let scheme = &#39;exampleapp&#39;;
+handleOpenURL(event) {
+    if (event.url &amp;amp;&amp;amp; event.url.indexOf(scheme + &#39;://&#39;) === 0) {
+        crossroads.parse(event.url.slice(scheme.length + 3));
+    }
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;We can put this code anywhere we want. For our example project let&amp;rsquo;s create a new &lt;a href=&#34;https://github.com/ihor/ReactNativeDeepLinkingExample/blob/master/app/components/LinkedRouter.js&#34;&gt;LinkedRouter&lt;/a&gt; component and listen for incoming links at &lt;code&gt;componentDidMount&lt;/code&gt;:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-jsx&#34;&gt;import React from &#39;react&#39;;
+import { Linking } from &#39;react-native&#39;;
+import { Router } from &#39;react-native-router-flux&#39;;
+
+class LinkedRouter extends React.Component {
+    constructor(props) {
+        super(props);
+
+        this.handleOpenURL = this.handleOpenURL.bind(this);
+    }
+
+    componentDidMount() {
+        Linking
+            .getInitialURL()
+            .then(url =&amp;gt; this.handleOpenURL({ url }))
+            .catch(console.error);
+
+        Linking.addEventListener(&#39;url&#39;, this.handleOpenURL);
+    }
+
+    componentWillUnmount() {
+        Linking.removeEventListener(&#39;url&#39;, this.handleOpenURL);
+    }
+
+    handleOpenURL(event) {
+        if (event.url &amp;amp;&amp;amp; event.url.indexOf(this.props.scheme + &#39;://&#39;) === 0) {
+            crossroads.parse(event.url.slice(this.props.scheme.length + 3));
+        }
+    }
+
+    render() {
+        return &amp;lt;Router { ...this.props }/&amp;gt;;
+    }
+}
+
+LinkedRouter.propTypes = {
+    scheme: React.PropTypes.string.isRequired
+};
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;The only thing which is left is mapping incoming URLs to the corresponding scenes. Nice place to add this code is our &lt;a href=&#34;https://github.com/ihor/ReactNativeDeepLinkingExample/blob/master/app/router.js&#34;&gt;router configuration&lt;/a&gt;. Here we assign &lt;code&gt;Greeting&lt;/code&gt; screen to the &lt;code&gt;greetings/{name}&lt;/code&gt; route and pass the &lt;code&gt;name&lt;/code&gt; parameter as the prop:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-jsx&#34;&gt;import React from &#39;react&#39;;
+import { Scene, Actions } from &#39;react-native-router-flux&#39;;
+import crossroads from &#39;crossroads&#39;;
+
+import LinkedRouter from &#39;./components/LinkedRouter&#39;;
+import HomeScreen from &#39;./components/HomeScreen&#39;;
+import GreetingScreen from &#39;./components/GreetingScreen&#39;;
+
+const scenes = Actions.create(
+    &amp;lt;Scene key=&amp;quot;root&amp;quot;&amp;gt;
+        &amp;lt;Scene key=&amp;quot;home&amp;quot; title=&amp;quot;Home&amp;quot; component={HomeScreen} initial={true}/&amp;gt;
+        &amp;lt;Scene key=&amp;quot;greeting&amp;quot; title=&amp;quot;Greeting&amp;quot; component={GreetingScreen}/&amp;gt;
+    &amp;lt;/Scene&amp;gt;
+);
+
+// Mapping incoming URLs to scenes
+crossroads.addRoute(&#39;greetings/{name}&#39;, name =&amp;gt; Actions.greeting({ name }));
+
+export default &amp;lt;LinkedRouter scenes={scenes} scheme=&amp;quot;exampleapp&amp;quot;/&amp;gt;;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;At this point, our React application is ready to handle incoming links. There is a little configuration work left to get it working on iOS and Android.&lt;/p&gt;
+
+&lt;h3 id=&#34;ios-deep-linking&#34;&gt;iOS deep linking&lt;/h3&gt;
+
+&lt;p&gt;On iOS, we&amp;rsquo;ll need to link &lt;code&gt;RCTLinking&lt;/code&gt; library which comes with React Native to our project. For this we&amp;rsquo;ll have to do the following steps:&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;Open project &lt;code&gt;*.xcodeproj&lt;/code&gt; with XCode.&lt;/li&gt;
+&lt;li&gt;Drag &lt;code&gt;RCTLinking.xcodeproj&lt;/code&gt; from &lt;code&gt;node_modules/react-native/Libraries/LinkingIOS&lt;/code&gt; to the project &lt;code&gt;Libraries&lt;/code&gt;
+&lt;p align=&#34;center&#34;&gt;
+&lt;img src=&#34;http://ihor.burlachenko.com/img/deeplinking/ios-step-2.png&#34; alt=&#34;Add RCTLinking to the project Libraries&#34; title=&#34;Add RCTLinking to the project Libraries&#34;/&gt;
+&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;Click on your main project file (the one that represents the .xcodeproj) select &lt;code&gt;Build Phases&lt;/code&gt; and drag the static library from the &lt;code&gt;RTCLinking&lt;/code&gt; &lt;code&gt;Products&lt;/code&gt; folder to &lt;code&gt;Link Binary With Libraries&lt;/code&gt;
+&lt;p align=&#34;center&#34;&gt;
+&lt;img src=&#34;http://ihor.burlachenko.com/img/deeplinking/ios-step-3.png&#34; alt=&#34;Link RCTLinking with binaries&#34; title=&#34;Link RCTLinking with binaries&#34;/&gt;
+&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;Click on your main project file again, select &lt;code&gt;Build Settings&lt;/code&gt;, search for &lt;code&gt;Header Search Paths&lt;/code&gt; and put &lt;code&gt;$(SRCROOT)/../node_modules/react-native/Libraries&lt;/code&gt; there
+&lt;p align=&#34;center&#34;&gt;
+&lt;img src=&#34;http://ihor.burlachenko.com/img/deeplinking/ios-step-4.png&#34; alt=&#34;Add header search path&#34; title=&#34;Add header search path&#34;/&gt;
+&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;Click on your main project file one more time, select &lt;code&gt;Info&lt;/code&gt; and add a URL type at the bottom. We&amp;rsquo;ll put &lt;code&gt;exampleapp&lt;/code&gt; there.
+&lt;p align=&#34;center&#34;&gt;
+&lt;img src=&#34;http://ihor.burlachenko.com/img/deeplinking/ios-step-5.png&#34; alt=&#34;Added URL scheme&#34; title=&#34;Added URL scheme&#34;/&gt;
+&lt;/p&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;If you want to listen to incoming app links during your app&amp;rsquo;s execution you&amp;rsquo;ll need to add the following lines to the *AppDelegate.m file:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-objectivec&#34;&gt; #import &amp;quot;React/RCTLinkingManager.h&amp;quot;
+
+ - (BOOL)application:(UIApplication *)application openURL:(NSURL *)url
+   sourceApplication:(NSString *)sourceApplication annotation:(id)annotation
+ {
+   return [RCTLinkingManager application:application openURL:url
+                       sourceApplication:sourceApplication annotation:annotation];
+ }
+
+ // Only if your app is using [Universal Links](https://developer.apple.com/library/prerelease/ios/documentation/General/Conceptual/AppSearch/UniversalLinks.html).
+ - (BOOL)application:(UIApplication *)application continueUserActivity:(NSUserActivity *)userActivity
+  restorationHandler:(void (^)(NSArray * _Nullable))restorationHandler
+ {
+  return [RCTLinkingManager application:application
+                   continueUserActivity:userActivity
+                     restorationHandler:restorationHandler];
+ }
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Now you can open Safari and navigate to &lt;code&gt;exampleapp://greetings/World&lt;/code&gt;. You&amp;rsquo;ll be taken to the Greeting screen:
+&lt;p align=&#34;center&#34;&gt;
+    &lt;img src=&#34;http://ihor.burlachenko.com/img/deeplinking/deeplinking-on-ios.gif&#34; alt=&#34;Deeplinking on iOS&#34; title=&#34;Deeplinking on iOS&#34; height=500/&gt;
+&lt;/p&gt;&lt;/p&gt;
+
+&lt;h3 id=&#34;android-deep-linking&#34;&gt;Android deep linking&lt;/h3&gt;
+
+&lt;p&gt;In order to allow deep linking to the content in Android, we need to add intent filters to respond to action requests from other applications. Intent filters are specified in your android manifest located in your React Native project at &lt;code&gt;android/app/src/main/AndroidManifest.xml&lt;/code&gt;. Here is the modified manifest with the intent filter added to the main activity:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-xml&#34;&gt;&amp;lt;activity
+    android:name=&amp;quot;.MainActivity&amp;quot;
+    android:label=&amp;quot;@string/app_name&amp;quot;
+    android:configChanges=&amp;quot;keyboard|keyboardHidden|orientation|screenSize&amp;quot;&amp;gt;
+    &amp;lt;intent-filter&amp;gt;
+        &amp;lt;action android:name=&amp;quot;android.intent.action.MAIN&amp;quot; /&amp;gt;
+        &amp;lt;category android:name=&amp;quot;android.intent.category.LAUNCHER&amp;quot; /&amp;gt;
+    &amp;lt;/intent-filter&amp;gt;
+
+    &amp;lt;intent-filter&amp;gt;
+        &amp;lt;action android:name=&amp;quot;android.intent.action.VIEW&amp;quot;/&amp;gt;
+        &amp;lt;category android:name=&amp;quot;android.intent.category.DEFAULT&amp;quot;/&amp;gt;
+        &amp;lt;category android:name=&amp;quot;android.intent.category.BROWSABLE&amp;quot;/&amp;gt;
+        &amp;lt;data android:scheme=&amp;quot;exampleapp&amp;quot;
+            android:host=&amp;quot;greetings&amp;quot;
+            android:pathPrefix=&amp;quot;/&amp;quot; /&amp;gt;
+    &amp;lt;/intent-filter&amp;gt;
+&amp;lt;/activity&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;After updating the manifest file you can launch the application on Android Virtual Device and execute the following command in a terminal to test the deep link:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;adb shell am start -a android.intent.action.VIEW -d &amp;quot;exampleapp://greetings/World&amp;quot; com.reactnativedeeplinkingexample
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;The same as with iOS application you should see the &amp;ldquo;Hello World&amp;rdquo; message.&lt;/p&gt;
+
+&lt;h3 id=&#34;summary&#34;&gt;Summary&lt;/h3&gt;
+
+&lt;p&gt;That&amp;rsquo;s pretty much it. As with many other things with React/React Native it was very easy to add deep links to our example app. I used React Native Router Flux navigation library but as you saw it was all about implementing the &lt;code&gt;handleOpenURL&lt;/code&gt; function and it shouldn&amp;rsquo;t be a problem to add deep linking to your application following steps from this tutorial.&lt;/p&gt;
+
+&lt;h3 id=&#34;links&#34;&gt;Links&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/ihor/ReactNativeDeepLinkingExample&#34;&gt;Sample Application sources&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://facebook.github.io/react-native/docs/linking.html&#34;&gt;React Native Linking docummentation&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/aksonov/react-native-router-flux&#34;&gt;React Native Router Flux navigation library&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://millermedeiros.github.io/crossroads.js/&#34;&gt;Crossroads routing library&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
 </description>
     </item>
     
