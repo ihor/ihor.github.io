@@ -210,7 +210,7 @@ export default &amp;lt;LinkedRouter scenes={scenes} scheme=&amp;quot;exampleapp&
 &lt;h3 id=&#34;links&#34;&gt;Links&lt;/h3&gt;
 
 &lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;https://github.com/ihor/ReactNativeDeepLinkingExample&#34;&gt;Sample Application sources&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/ihor/ReactNativeDeepLinkingExample&#34;&gt;Example Application sources&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;https://facebook.github.io/react-native/docs/linking.html&#34;&gt;React Native Linking docummentation&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;https://github.com/aksonov/react-native-router-flux&#34;&gt;React Native Router Flux navigation library&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;https://millermedeiros.github.io/crossroads.js/&#34;&gt;Crossroads routing library&lt;/a&gt;&lt;/li&gt;
