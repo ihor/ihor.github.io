@@ -303,7 +303,7 @@ export default connect(mapStateToProps, { helpRequested })(HelpButton)
     &lt;img src=&#34;http://ihor.burlachenko.com/img/code-reuse/crossplatform-modules.png&#34; height=140 alt=&#34;Cross platform module directory structure&#34; title=&#34;Cross platform module directory structure&#34;/&gt;
 &lt;/p&gt;
 
-&lt;p&gt;Some services or components will be present only on particular platforms. In such case, I put them into platform specific subdirectories: &lt;code&gt;app\web&lt;/code&gt; or &lt;code&gt;app\native&lt;/code&gt;, where only platform related code resides.&lt;/p&gt;
+&lt;p&gt;Some services or components will be present only on particular platforms. In such case, I put them into platform specific subdirectories: &lt;code&gt;app/web&lt;/code&gt; or &lt;code&gt;app/native&lt;/code&gt;, where only platform related code resides.&lt;/p&gt;
 
 &lt;h3 id=&#34;conclusion&#34;&gt;Conclusion&lt;/h3&gt;
 
