@@ -2,6 +2,11 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://ihor.burlachenko.com/code-sharing-between-related-react-native-applications-with-monorepo/</loc>
+    <lastmod>2017-09-17T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>http://ihor.burlachenko.com/code-sharing-between-react-and-react-native-applications/</loc>
     <lastmod>2017-09-10T00:00:00+00:00</lastmod>
   </url>
@@ -28,25 +33,25 @@
   
   <url>
     <loc>http://ihor.burlachenko.com/categories/howto/</loc>
-    <lastmod>2017-09-10T00:00:00+00:00</lastmod>
+    <lastmod>2017-09-17T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>http://ihor.burlachenko.com/</loc>
-    <lastmod>2017-09-10T00:00:00+00:00</lastmod>
+    <lastmod>2017-09-17T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>http://ihor.burlachenko.com/post/</loc>
-    <lastmod>2017-09-10T00:00:00+00:00</lastmod>
+    <lastmod>2017-09-17T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>http://ihor.burlachenko.com/categories/react-native/</loc>
-    <lastmod>2017-09-10T00:00:00+00:00</lastmod>
+    <lastmod>2017-09-17T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
