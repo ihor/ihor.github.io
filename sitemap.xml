@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
     <loc>http://ihor.burlachenko.com/code-sharing-between-react-and-react-native-applications/</loc>
@@ -30,6 +31,10 @@
     <loc>http://ihor.burlachenko.com/</loc>
     <lastmod>2017-09-10T00:00:00+00:00</lastmod>
     <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://ihor.burlachenko.com/open-source/</loc>
   </url>
   
   <url>
