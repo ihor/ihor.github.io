@@ -3,8 +3,32 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>http://ihor.burlachenko.com/categories/</loc>
+    <lastmod>2017-09-10T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>http://ihor.burlachenko.com/code-sharing-between-react-and-react-native-applications/</loc>
     <lastmod>2017-09-10T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://ihor.burlachenko.com/</loc>
+    <lastmod>2017-09-10T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://ihor.burlachenko.com/posts/</loc>
+    <lastmod>2017-09-10T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://ihor.burlachenko.com/categories/react-native/</loc>
+    <lastmod>2017-09-10T00:00:00+00:00</lastmod>
+    <priority>0</priority>
   </url>
   
   <url>
@@ -23,13 +47,7 @@
   </url>
   
   <url>
-    <loc>http://ihor.burlachenko.com/categories/</loc>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>http://ihor.burlachenko.com/</loc>
-    <lastmod>2017-09-10T00:00:00+00:00</lastmod>
+    <loc>http://ihor.burlachenko.com/react-styled-floating-label-demo/</loc>
     <priority>0</priority>
   </url>
   
@@ -38,14 +56,7 @@
   </url>
   
   <url>
-    <loc>http://ihor.burlachenko.com/post/</loc>
-    <lastmod>2017-09-10T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>http://ihor.burlachenko.com/categories/react-native/</loc>
-    <lastmod>2017-09-10T00:00:00+00:00</lastmod>
+    <loc>http://ihor.burlachenko.com/tags/</loc>
     <priority>0</priority>
   </url>
   

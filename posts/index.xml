@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Posts on Ihor Burlachenko</title>
+    <link>http://ihor.burlachenko.com/posts/</link>
+    <description>Recent content in Posts on Ihor Burlachenko</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 10 Sep 2017 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="http://ihor.burlachenko.com/posts/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Code sharing between React and React Native applications</title>
+      <link>http://ihor.burlachenko.com/code-sharing-between-react-and-react-native-applications/</link>
+      <pubDate>Sun, 10 Sep 2017 00:00:00 +0000</pubDate>
+      
+      <guid>http://ihor.burlachenko.com/code-sharing-between-react-and-react-native-applications/</guid>
+      <description>Sharing code between the web and native was one of the most interesting React Native questions since its appearance. It wasn&amp;rsquo;t the original goal of the React Native but when all our code base is written in one language it&amp;rsquo;s a natural desire to remove code duplication and reuse as much code as possible.
+The approach I&amp;rsquo;m going to explain is based on the fact that React Native loads platform specific Javascript modules based on their extensions.</description>
+    </item>
+    
+    <item>
+      <title>Deep Linking with React Native</title>
+      <link>http://ihor.burlachenko.com/deep-linking-with-react-native/</link>
+      <pubDate>Fri, 24 Feb 2017 00:00:00 +0000</pubDate>
+      
+      <guid>http://ihor.burlachenko.com/deep-linking-with-react-native/</guid>
+      <description>Recently I added deep linking integration to one of my projects and I want to share my experience with you. It is a complete guide which covers all the steps and explains how to add deep links both on iOS and Android. In my example, I&amp;rsquo;ll use React Native Router Flux. It is a very nice navigation library and at the moment of writing, I couldn&amp;rsquo;t find anything which I would like more.</description>
+    </item>
+    
+  </channel>
+</rss>

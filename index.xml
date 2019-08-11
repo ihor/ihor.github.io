@@ -36,8 +36,7 @@ The approach I&amp;rsquo;m going to explain is based on the fact that React Nati
       <pubDate>Tue, 21 Feb 2017 00:00:00 +0000</pubDate>
       
       <guid>http://ihor.burlachenko.com/about/</guid>
-      <description>Hey, I&amp;rsquo;m Ihor I’m a full-stack software engineer working mostly with PHP stack on back-end and React/React Native on client-side. I have a solid background in developing complex business logic, solving performance problems and managing teams. With over 10 years of experience, I learned how to deliver a high-quality product and meet business needs.
-I&amp;rsquo;m available for onsite work in Wroclaw, Poland and for remote contracting.</description>
+      <description>Hey, I&amp;rsquo;m Ihor I provide software engineering and consulting services. I have a solid background in developing complex business logic, solving performance issues, and managing teams. With over 12 years of experience, I&amp;rsquo;ve learned how to deliver a high-quality product and meet business needs. Drop me a line at services@burlachenko.com for details and availability.</description>
     </item>
     
     <item>
@@ -48,7 +47,16 @@ I&amp;rsquo;m available for onsite work in Wroclaw, Poland and for remote contra
       <guid>http://ihor.burlachenko.com/license/</guid>
       <description>Content license All non-code blog content is licensed under Creative Commons BY-NC-SA.
 Code license All source code files and snippets found on this blog, unless otherwise explicitly noted, are licensed under the terms below.
-Copyright 2017 Ihor Burlachenko Licensed under the Apache License, Version 2.0 (the &amp;quot;License&amp;quot;); you may not use this file except in compliance with the License. You may obtain a copy of the License at http://www.apache.org/licenses/LICENSE-2.0 Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an &amp;quot;AS IS&amp;quot; BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.</description>
+Copyright 2019 Ihor Burlachenko Licensed under the Apache License, Version 2.0 (the &amp;quot;License&amp;quot;); you may not use this file except in compliance with the License. You may obtain a copy of the License at http://www.apache.org/licenses/LICENSE-2.0 Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an &amp;quot;AS IS&amp;quot; BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>http://ihor.burlachenko.com/react-styled-floating-label-demo/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://ihor.burlachenko.com/react-styled-floating-label-demo/</guid>
+      <description>  </description>
     </item>
     
     <item>

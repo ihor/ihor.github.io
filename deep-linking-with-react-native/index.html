@@ -1,49 +1,33 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
-<head>
-    <link href="http://gmpg.org/xfn/11" rel="profile">
-    <meta http-equiv="content-type" content="text/html; charset=utf-8">
 
-    
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
 
     
 
-    <title> Deep Linking with React Native &middot; Ihor Burlachenko </title>
+    <meta name="description" content='Ihor Burlachenko – Software development and Consulting'>
+    <meta name="keywords" content='web, php, javascript, react, consulting, native, mobile, remote, wroclaw'>
+
+    <title>Ihor Burlachenko &middot; Deep Linking with React Native</title>
 
     
 
-    
-        <link href="http://ihor.burlachenko.com/css/highlight/prism-github.css" rel="stylesheet" />
-    
-
-    <link rel="stylesheet" href="http://ihor.burlachenko.com/css/poole.css">
-    <link rel="stylesheet" href="http://ihor.burlachenko.com/css/styles.css">
-    <link rel="stylesheet" type="text/css" href="https://cdn-static-1.medium.com/_/fp/css/fonts-lazy-latin-base.jMU532QDmysQMOINr-cr2A.css" />
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <link href='http://ihor.burlachenko.com/css/prism-github.css' rel="stylesheet" />
+    <link rel="stylesheet" href='http://ihor.burlachenko.com/css/styles.css'>
+    <link rel="stylesheet" type="text/css" href="https://cdn-static-1.medium.com/_/fp/css/fonts-lazy-latin-base.jMU532QDmysQMOINr-cr2A.css" />
+
+    
+    <link href='http://ihor.burlachenko.com/favicon.png' rel="icon">
+
+    
+    
+    
     
 
     
-    <link href="http://ihor.burlachenko.com/favicon.png" rel="icon">
-
-    
-    
-    
-    
-
-    <meta name="description" content="Ihor Burlachenko - Full stack software engineer">
-    <meta name="keywords" content="burlachenko, php, symfony, javascript, react, react native, python, wroclaw, remote">
-
-    
-        <script>
-            (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-            })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
-            ga('create', 'UA-78180506-1', 'auto');
-            ga('send', 'pageview');
-        </script>
     
 
     
@@ -51,41 +35,41 @@
     
 </head>
 
+
 <body>
-
     <header class="head">
-        <h1>
-            <a href="/" title="Home">Ihor Burlachenko</a>
-            
-        </h1>
+    <a href="/" title="Ihor Burlachenko" rel="index" aria-label="Homepage" id="logo">Ihor Burlachenko</a>
 
-        <nav>
-            <a href="http://ihor.burlachenko.com/about">About</a>
-            <a target="_blank" href="https://twitter.com/IhorBurlachenko"><i class="fa fa-twitter"></i></a>
-            <a target="_blank" href="https://github.com/ihor"><i class="fa fa-github"></i></a>
-            
-            
-            <a target="_blank" href="http://www.linkedin.com/in/burlachenko"><i class="fa fa-linkedin"></i></a>
-            
-            
-            
-            
-        </nav>
-
-        <div class="cf"></div>
-    </header>
-
-
-<main class="container">
-    <article class="post">
-
-        <h1>Deep Linking with React Native</h1>
-        <span class="post-date">
-            <time>Feb 24, 2017</time>
-             &middot; 5 minute read
-        </span>
+    <nav>
+        <a href='http://ihor.burlachenko.com/about'>About</a>
 
         
+            <a target="_blank" href="https://twitter.com/IhorBurlachenko" rel="external" aria-label="Open Ihor Burlachenko Twitter in a new tab"><i class="fa fa-twitter"></i></a>
+        
+
+        
+            <a target="_blank" href="https://github.com/ihor" rel="external" aria-label="Open Ihor Burlachenko Github in a new tab"><i class="fa fa-github"></i></a>
+        
+
+        
+            <a target="_blank" href="https://www.linkedin.com/in/burlachenko" rel="external" aria-label="Open Ihor Burlachenko Linkedin in a new tab"><i class="fa fa-linkedin"></i></a>
+        
+
+        
+    </nav>
+</header>
+
+
+    <main>
+        <article class="article">
+            <h1>Deep Linking with React Native</h1>
+
+            <span class="date">
+    <time>Feb 24, 2017</time> &middot; 5 minute read
+</span>
+
+
+            
 
 <p>Recently I added deep linking integration to one of my projects and I want to share my experience with you. It is a complete guide which covers all the steps and explains how to add deep links both on iOS and Android. In my example, I&rsquo;ll use <a href="https://github.com/aksonov/react-native-router-flux">React Native Router Flux</a>. It is a very nice navigation library and at the moment of writing, I couldn&rsquo;t find anything which I would like more. In case you are using something else, this tutorial still will be useful for you as it doesn&rsquo;t rely on the navigation library but describes how to integrate deep links to your application.</p>
 
@@ -97,7 +81,7 @@
 
 <p>I prepared a example application which has two screens. On the first one we are offered to enter our name. When we submit it we are taken to the second screen where we can see a greeting message. Our goal will be to allow deep links with parametrized names to the greeting screen. You can check the sources <a href="https://github.com/ihor/ReactNativeDeepLinkingExample">here</a>.
 <p align="center">
-    <img src="/img/deeplinking/example-app.gif" alt="Sample Application" title="Example application" height=500/>
+    <img src="example-app.gif" alt="Sample Application" title="Example application" height=500/>
 </p></p>
 
 <h3 id="deep-linking-with-react-native">Deep linking with React Native</h3>
@@ -200,19 +184,19 @@ export default &lt;LinkedRouter scenes={scenes} scheme=&quot;exampleapp&quot;/&g
 <li>Open project <code>*.xcodeproj</code> with XCode.</li>
 <li>Drag <code>RCTLinking.xcodeproj</code> from <code>node_modules/react-native/Libraries/LinkingIOS</code> to the project <code>Libraries</code>
 <p align="center" style="padding-top: 10px">
-<img src="/img/deeplinking/ios-step-2.png" alt="Add RCTLinking to the project Libraries" title="Add RCTLinking to the project Libraries"/>
+<img src="ios-step-2.png" alt="Add RCTLinking to the project Libraries" title="Add RCTLinking to the project Libraries"/>
 </p></li>
 <li>Click on your main project file (the one that represents the .xcodeproj) select <code>Build Phases</code> and drag the static library from the <code>RTCLinking</code> <code>Products</code> folder to <code>Link Binary With Libraries</code>
 <p align="center" style="padding-top: 10px">
-<img src="/img/deeplinking/ios-step-3.png" alt="Link RCTLinking with binaries" title="Link RCTLinking with binaries"/>
+<img src="ios-step-3.png" alt="Link RCTLinking with binaries" title="Link RCTLinking with binaries"/>
 </p></li>
 <li>Click on your main project file again, select <code>Build Settings</code>, search for <code>Header Search Paths</code> and put <code>$(SRCROOT)/../node_modules/react-native/Libraries</code> there
 <p align="center" style="padding-top: 10px">
-<img src="/img/deeplinking/ios-step-4.png" alt="Add header search path" title="Add header search path"/>
+<img src="ios-step-4.png" alt="Add header search path" title="Add header search path"/>
 </p></li>
 <li>Click on your main project file one more time, select <code>Info</code> and add a URL type at the bottom. We&rsquo;ll put <code>exampleapp</code> there.
 <p align="center" style="padding-top: 10px">
-<img src="/img/deeplinking/ios-step-5.png" alt="Added URL scheme" title="Added URL scheme"/>
+<img src="ios-step-5.png" alt="Added URL scheme" title="Added URL scheme"/>
 </p></li>
 </ol>
 
@@ -239,7 +223,7 @@ export default &lt;LinkedRouter scenes={scenes} scheme=&quot;exampleapp&quot;/&g
 
 <p>Now you can open Safari and navigate to <code>exampleapp://greetings/World</code>. You&rsquo;ll be taken to the Greeting screen:
 <p align="center">
-    <img src="/img/deeplinking/deeplinking-on-ios.gif" alt="Deeplinking on iOS" title="Deeplinking on iOS" height=500/>
+    <img src="deeplinking-on-ios.gif" alt="Deeplinking on iOS" title="Deeplinking on iOS" height=500/>
 </p></p>
 
 <h3 id="android-deep-linking">Android deep linking</h3>
@@ -287,30 +271,39 @@ export default &lt;LinkedRouter scenes={scenes} scheme=&quot;exampleapp&quot;/&g
 </ul>
 
 
-        
             
-                <a class="label" href="http://ihor.burlachenko.com/categories/react-native">React Native</a>
-            
-        
-    </article>
+    
+        <a class="category" href='http://ihor.burlachenko.com/categories/react-native'>React Native</a>
+    
+
+
+        </article>
+    </main>
 
     
-        <section style="border-top: 1px solid rgba(0,0,0,.05); padding-top: 1em; margin-bottom: 1em;">
-            Liked the article? Follow me on Twitter to stay in touch
+        <section style="margin-bottom: 1em;">
+            <div style="margin-bottom: 5px;">Liked the article? Follow me on Twitter to stay in touch</div>
             <a class="twitter-follow-button"
-                href="https://twitter.com/IhorBurlachenko"
-                data-size="large"
-                data-show-count="true"
-                data-show-screen-name="true">
+               href="https://twitter.com/IhorBurlachenko"
+               data-size="large"
+               data-show-count="true"
+               data-show-screen-name="true">
                 Follow
             </a>
         </section>
     
 
     
-        <div id="disqus_thread"></div>
+        <section id="disqus_thread"></section>
     
-</main>
+
+    <footer>
+    Copyright &copy; 2019 <a href='http://ihor.burlachenko.com/license/'>License</a>
+</footer>
+
+</body>
+
+<script src='http://ihor.burlachenko.com/js/prism.js'></script>
 
 
     <script type="text/javascript">
@@ -323,8 +316,6 @@ export default &lt;LinkedRouter scenes={scenes} scheme=&quot;exampleapp&quot;/&g
             (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
         }());
     </script>
-
-
 
     <script type="text/javascript">
         var disqus_shortname = "ihorburlachenko";
@@ -342,13 +333,4 @@ export default &lt;LinkedRouter scenes={scenes} scheme=&quot;exampleapp&quot;/&g
 
 
 
-    <script src="http://ihor.burlachenko.com/js/prism.js"></script>
-
-
-<footer class="copyright">
-    Copyright &copy; 2019 <a href="http://ihor.burlachenko.com/license/">License</a>
-</footer>
-
-</body>
 </html>
-

@@ -1,49 +1,33 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
-<head>
-    <link href="http://gmpg.org/xfn/11" rel="profile">
-    <meta http-equiv="content-type" content="text/html; charset=utf-8">
 
-    
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
 
     
 
-    <title> Code sharing between React and React Native applications &middot; Ihor Burlachenko </title>
+    <meta name="description" content='Ihor Burlachenko – Software development and Consulting'>
+    <meta name="keywords" content='web, php, javascript, react, consulting, native, mobile, remote, wroclaw'>
+
+    <title>Ihor Burlachenko &middot; Code sharing between React and React Native applications</title>
 
     
 
-    
-        <link href="http://ihor.burlachenko.com/css/highlight/prism-github.css" rel="stylesheet" />
-    
-
-    <link rel="stylesheet" href="http://ihor.burlachenko.com/css/poole.css">
-    <link rel="stylesheet" href="http://ihor.burlachenko.com/css/styles.css">
-    <link rel="stylesheet" type="text/css" href="https://cdn-static-1.medium.com/_/fp/css/fonts-lazy-latin-base.jMU532QDmysQMOINr-cr2A.css" />
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <link href='http://ihor.burlachenko.com/css/prism-github.css' rel="stylesheet" />
+    <link rel="stylesheet" href='http://ihor.burlachenko.com/css/styles.css'>
+    <link rel="stylesheet" type="text/css" href="https://cdn-static-1.medium.com/_/fp/css/fonts-lazy-latin-base.jMU532QDmysQMOINr-cr2A.css" />
+
+    
+    <link href='http://ihor.burlachenko.com/favicon.png' rel="icon">
+
+    
+    
+    
     
 
     
-    <link href="http://ihor.burlachenko.com/favicon.png" rel="icon">
-
-    
-    
-    
-    
-
-    <meta name="description" content="Ihor Burlachenko - Full stack software engineer">
-    <meta name="keywords" content="burlachenko, php, symfony, javascript, react, react native, python, wroclaw, remote">
-
-    
-        <script>
-            (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-            })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
-            ga('create', 'UA-78180506-1', 'auto');
-            ga('send', 'pageview');
-        </script>
     
 
     
@@ -51,41 +35,41 @@
     
 </head>
 
+
 <body>
-
     <header class="head">
-        <h1>
-            <a href="/" title="Home">Ihor Burlachenko</a>
-            
-        </h1>
+    <a href="/" title="Ihor Burlachenko" rel="index" aria-label="Homepage" id="logo">Ihor Burlachenko</a>
 
-        <nav>
-            <a href="http://ihor.burlachenko.com/about">About</a>
-            <a target="_blank" href="https://twitter.com/IhorBurlachenko"><i class="fa fa-twitter"></i></a>
-            <a target="_blank" href="https://github.com/ihor"><i class="fa fa-github"></i></a>
-            
-            
-            <a target="_blank" href="http://www.linkedin.com/in/burlachenko"><i class="fa fa-linkedin"></i></a>
-            
-            
-            
-            
-        </nav>
-
-        <div class="cf"></div>
-    </header>
-
-
-<main class="container">
-    <article class="post">
-
-        <h1>Code sharing between React and React Native applications</h1>
-        <span class="post-date">
-            <time>Sep 10, 2017</time>
-             &middot; 8 minute read
-        </span>
+    <nav>
+        <a href='http://ihor.burlachenko.com/about'>About</a>
 
         
+            <a target="_blank" href="https://twitter.com/IhorBurlachenko" rel="external" aria-label="Open Ihor Burlachenko Twitter in a new tab"><i class="fa fa-twitter"></i></a>
+        
+
+        
+            <a target="_blank" href="https://github.com/ihor" rel="external" aria-label="Open Ihor Burlachenko Github in a new tab"><i class="fa fa-github"></i></a>
+        
+
+        
+            <a target="_blank" href="https://www.linkedin.com/in/burlachenko" rel="external" aria-label="Open Ihor Burlachenko Linkedin in a new tab"><i class="fa fa-linkedin"></i></a>
+        
+
+        
+    </nav>
+</header>
+
+
+    <main>
+        <article class="article">
+            <h1>Code sharing between React and React Native applications</h1>
+
+            <span class="date">
+    <time>Sep 10, 2017</time> &middot; 8 minute read
+</span>
+
+
+            
 
 <p>Sharing code between the web and native was one of the most interesting React Native questions since its appearance. It wasn&rsquo;t the original goal of the React Native but when all our code base is written in one language it&rsquo;s a natural desire to remove code duplication and reuse as much code as possible.</p>
 
@@ -169,7 +153,7 @@ export default TitleView;
 
 <p>If we run the app we&rsquo;ll see different title text for the web and iOS:
 <p align="center">
-    <img src="/img/code-reuse/simple-components.png" alt="Titles are different" title="Titles are different"/>
+    <img src="simple-components.png" alt="Titles are different" title="Titles are different"/>
 </p></p>
 
 <p>You can check the component sources <a href="https://github.com/ihor/ReactNativeCodeReuseExample/tree/master/app/components/Title">here</a>.</p>
@@ -249,7 +233,7 @@ export default AboutButtonContainer;
 
 <p>If we run the app and click the &lsquo;About&rsquo; button we&rsquo;ll see two different platform specific popups with the about information:
 <p align="center">
-    <img src="/img/code-reuse/components-with-logic.png" alt="Platform specific popups" title="Platform specific popups"/>
+    <img src="components-with-logic.png" alt="Platform specific popups" title="Platform specific popups"/>
 </p></p>
 
 <p>You can see the component sources <a href="https://github.com/ihor/ReactNativeCodeReuseExample/tree/master/app/components/AboutButton">here</a>.</p>
@@ -357,7 +341,7 @@ export default connect(mapStateToProps, { helpRequested })(HelpButton)
 
 <p>If we run the app and click the help button two times we&rsquo;ll see that number of clicks is counted:
 <p align="center">
-    <img src="/img/code-reuse/connected-components.png" alt="Number of clicks is counted" title="Number of clicks is counted"/>
+    <img src="connected-components.png" alt="Number of clicks is counted" title="Number of clicks is counted"/>
 </p></p>
 
 <p>You can see the component sources <a href="https://github.com/ihor/ReactNativeCodeReuseExample/tree/master/app/components/HelpButton">here</a>.</p>
@@ -371,7 +355,7 @@ export default connect(mapStateToProps, { helpRequested })(HelpButton)
 <p>For services, which have different implementations depending on the platform, we can use the same solution as we did for components. We create a directory with the web implementation <code>service.js</code>, native implementation <code>service.native.js</code> and simply import and export the service back in the <code>index.js</code> file.</p>
 
 <p align="center">
-    <img src="/img/code-reuse/crossplatform-modules.png" height=140 alt="Cross platform module directory structure" title="Cross platform module directory structure"/>
+    <img src="crossplatform-modules.png" height=140 alt="Cross platform module directory structure" title="Cross platform module directory structure"/>
 </p>
 
 <p>Some services or components will be present only on particular platforms. In such case, I put them into platform specific subdirectories: <code>app/web</code> or <code>app/native</code>, where only platform related code resides.</p>
@@ -380,7 +364,7 @@ export default connect(mapStateToProps, { helpRequested })(HelpButton)
 
 <p>The approach is very simple and is very easy to use. Instead of having several platform specific applications we have only one cross-platform application. Separating modules based on their functionality instead of a platform makes it very convenient to develop all platforms in parallel.</p>
 
-<p>The example app is very simplified. It is not following all the best React/React Native practices and shouldn&rsquo;t be used as an example of well-designed React application. The goal was to explain the approach easy for understanding, providing many examples but still keeping it a short read. Some not topic related things weren&rsquo;t explained at all. Some possible complications of given solutions weren&rsquo;t provided (e.g. using of abstract views) but that&rsquo;s something you can figure out yourself based on your particular situation. If you have any questions please check the <a href="https://github.com/ihor/ReactNativeCodeReuseExample">sources</a> or ask me in the comments.</p>
+<p>The example app is very simplified. It is not following all the best React/React Native practices and shouldn&rsquo;t be used as an example of well-designed React application. The goal was to explain the approach easy for understanding, providing many examples but still keeping it a short read. Some not topic related things weren&rsquo;t explained at all. Some possible complications of given solutions weren&rsquo;t provided (e.g. using of abstract views) but that&rsquo;s something you can figure out yourself based on your particular situation. If you have any questions please check the <a href="https://github.com/ihor/ReactNativeCodeReuseExample">sources</a> or ask me in comments.</p>
 
 <h3 id="links">Links</h3>
 
@@ -392,30 +376,39 @@ export default connect(mapStateToProps, { helpRequested })(HelpButton)
 </ul>
 
 
-        
             
-                <a class="label" href="http://ihor.burlachenko.com/categories/react-native">React Native</a>
-            
-        
-    </article>
+    
+        <a class="category" href='http://ihor.burlachenko.com/categories/react-native'>React Native</a>
+    
+
+
+        </article>
+    </main>
 
     
-        <section style="border-top: 1px solid rgba(0,0,0,.05); padding-top: 1em; margin-bottom: 1em;">
-            Liked the article? Follow me on Twitter to stay in touch
+        <section style="margin-bottom: 1em;">
+            <div style="margin-bottom: 5px;">Liked the article? Follow me on Twitter to stay in touch</div>
             <a class="twitter-follow-button"
-                href="https://twitter.com/IhorBurlachenko"
-                data-size="large"
-                data-show-count="true"
-                data-show-screen-name="true">
+               href="https://twitter.com/IhorBurlachenko"
+               data-size="large"
+               data-show-count="true"
+               data-show-screen-name="true">
                 Follow
             </a>
         </section>
     
 
     
-        <div id="disqus_thread"></div>
+        <section id="disqus_thread"></section>
     
-</main>
+
+    <footer>
+    Copyright &copy; 2019 <a href='http://ihor.burlachenko.com/license/'>License</a>
+</footer>
+
+</body>
+
+<script src='http://ihor.burlachenko.com/js/prism.js'></script>
 
 
     <script type="text/javascript">
@@ -428,8 +421,6 @@ export default connect(mapStateToProps, { helpRequested })(HelpButton)
             (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
         }());
     </script>
-
-
 
     <script type="text/javascript">
         var disqus_shortname = "ihorburlachenko";
@@ -447,13 +438,4 @@ export default connect(mapStateToProps, { helpRequested })(HelpButton)
 
 
 
-    <script src="http://ihor.burlachenko.com/js/prism.js"></script>
-
-
-<footer class="copyright">
-    Copyright &copy; 2019 <a href="http://ihor.burlachenko.com/license/">License</a>
-</footer>
-
-</body>
 </html>
-
